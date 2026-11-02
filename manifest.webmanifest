@@ -1,0 +1,11 @@
+{
+  "name": "IRONFORM – Dein Training",
+  "short_name": "IRONFORM",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#101317",
+  "theme_color": "#101317",
+  "description": "Dein persönlicher Fitness- und Haltungstrainer.",
+  "icons": []
+}

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101317">
+<title>IRONFORM – Dein Training</title>
+<style>
+:root{--bg:#101317;--panel:#1a2026;--panel2:#222a32;--text:#f4f6f8;--muted:#9ba7b2;--accent:#ff7a1a;--line:#303a44;--green:#5dd39e}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding-bottom:90px}
+header{padding:24px 18px 18px;background:linear-gradient(140deg,#202a33,#111519 70%);border-bottom:1px solid var(--line)}
+.kicker{color:var(--accent);font-weight:800;letter-spacing:2px;font-size:11px}h1{font-size:29px;margin:7px 0 4px;letter-spacing:-1px}.sub{color:var(--muted);font-size:13px}
+main{max-width:720px;margin:auto;padding:16px}.tabs{display:flex;gap:8px;margin:0 0 16px}.tab{flex:1;border:1px solid var(--line);background:var(--panel);color:var(--muted);padding:12px 8px;border-radius:12px;font-weight:800}.tab.active{background:var(--accent);border-color:var(--accent);color:#151515}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:16px;margin-bottom:13px}.hero{background:linear-gradient(135deg,#2a333c,#1a2026);border-color:#46515b}.row{display:flex;justify-content:space-between;align-items:center;gap:12px}.tag{font-size:11px;color:var(--accent);font-weight:900;letter-spacing:1px}.muted{color:var(--muted)}h2{font-size:20px;margin:7px 0}h3{font-size:16px;margin:0 0 5px}.big{font-size:30px;font-weight:900;letter-spacing:-1px}.small{font-size:12px;color:var(--muted);line-height:1.45}.pill{border:1px solid var(--line);border-radius:99px;padding:6px 10px;font-size:11px;color:var(--muted)}
+.exercise{padding:14px 0;border-top:1px solid var(--line)}.exercise:first-of-type{border-top:0}.exhead{display:flex;gap:10px;align-items:flex-start}.num{width:28px;height:28px;flex:none;border-radius:9px;background:#303943;color:var(--accent);display:grid;place-items:center;font-weight:900}.exbody{flex:1}.prescription{font-size:12px;color:var(--accent);font-weight:800;margin-top:4px}.inputs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:11px 0 8px}.inputs label{font-size:10px;color:var(--muted);display:block;margin-bottom:4px}.inputs input{width:100%;background:#11171c;border:1px solid var(--line);border-radius:9px;color:var(--text);padding:10px;font-size:16px}.done{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted)}.done input{accent-color:var(--accent);width:18px;height:18px}
+button{cursor:pointer}.action{border:0;border-radius:12px;background:var(--accent);color:#171717;font-weight:900;padding:13px 16px}.secondary{background:var(--panel2);border:1px solid var(--line);color:var(--text);border-radius:11px;padding:11px 13px;font-weight:700}.wide{width:100%}.notice{font-size:12px;line-height:1.5;color:var(--muted);background:#151b20;border-left:3px solid var(--accent);padding:12px;border-radius:8px;margin:12px 0}
+nav{position:fixed;bottom:0;left:0;right:0;background:#151a1f;border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:10px 4px calc(10px + env(safe-area-inset-bottom));z-index:5}nav button{background:none;border:0;color:var(--muted);font-size:11px;font-weight:700;padding:5px}nav button.active{color:var(--accent)}
+.progress{height:8px;background:#303943;border-radius:99px;overflow:hidden;margin:10px 0}.progress span{display:block;height:100%;background:var(--accent);width:0}
+.hidden{display:none!important}.statgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.stat{background:var(--panel2);padding:13px;border-radius:12px}.stat strong{font-size:23px;display:block}.listline{padding:12px 0;border-top:1px solid var(--line)}.timer{font-size:42px;font-weight:900;text-align:center;padding:15px}
+footer{text-align:center;color:#68737d;font-size:10px;padding:16px}
+</style>
+
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icon.svg">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="IRONFORM">
+</head>
+<body>
+<header><div class="kicker">DEIN PERSÖNLICHER TRAININGSCOACH</div><h1>IRONFORM<span style="color:var(--accent)">.</span></h1><div class="sub">Kraft aufbauen. Haltung verbessern. Dranbleiben.</div></header>
+<main>
+<section id="home">
+ <div class="card hero">
+  <div class="tag">DEIN START</div><div class="row"><div><h2>Bereit fürs Training?</h2><div class="small">Wiedereinstieg · 2 Einheiten pro Woche · max. 60 Min.</div></div><div class="big">💪</div></div>
+  <div class="row" style="margin-top:16px"><div><div class="small">NÄCHSTE EINHEIT</div><div style="font-size:22px;font-weight:900" id="nextName">Training A</div></div><button class="action" onclick="startNext()">Training starten →</button></div>
+ </div>
+ <div class="statgrid">
+  <div class="stat"><span class="small">Abgeschlossene Einheiten</span><strong id="totalWorkouts">0</strong></div>
+  <div class="stat"><span class="small">Trainingsroutine</span><strong>2× / Woche</strong></div>
+ </div>
+ <div class="card"><div class="tag">DEIN FOKUS</div><h2>Stark und aufrecht</h2><p class="small">Ganzkörper-Krafttraining mit zusätzlichem Fokus auf oberen Rücken, hintere Schulter, Rumpf und sanfte Nackenstabilität.</p><div class="notice">Haltungshinweis: Übe eine entspannte, natürliche Aufrichtung. Ziehe die Schultern nicht dauerhaft mit Kraft nach hinten. Bei Schmerzen, Taubheit oder Schwindel Übung abbrechen und medizinisch abklären lassen.</div></div>
+ <div class="card"><h3>Deine 8-Wochen-Strategie</h3><div class="progress"><span style="width:12.5%"></span></div><div class="small">Woche 1–2: Technik und passende Startgewichte finden. Danach langsam steigern, wenn alle Wiederholungen sauber und mit etwa 2–3 Wiederholungen Reserve gelingen.</div></div>
+</section>
+<section id="workout" class="hidden">
+ <div class="row" style="margin-bottom:12px"><div><div class="tag">TRAININGSPROTOKOLL</div><h2 id="workTitle">Training A</h2></div><span class="pill">ca. 50–60 Min.</span></div>
+ <div class="tabs"><button class="tab active" id="tabA" onclick="choose('A')">EINHEIT A</button><button class="tab" id="tabB" onclick="choose('B')">EINHEIT B</button></div>
+ <div class="card"><div class="row"><h3>Aufwärmen</h3><span class="pill">5–7 Min.</span></div><p class="small" id="warmup">3–5 Minuten lockeres Gehen oder Radfahren, dann Schulterkreisen und leichte Bewegungen ohne Schmerz.</p></div>
+ <div class="card"><div class="row"><h3>Übungen</h3><span class="pill" id="count">0 / 6 erledigt</span></div><div class="progress"><span id="workProgress"></span></div><div id="exerciseList"></div></div>
+ <div class="card"><h3>Pause-Timer</h3><div class="timer" id="timer">01:30</div><div class="row"><button class="secondary" onclick="timerStart(60)">60 Sek.</button><button class="secondary" onclick="timerStart(90)">90 Sek.</button><button class="secondary" onclick="timerStart(120)">120 Sek.</button></div></div>
+ <div class="card"><h3>Training abschließen</h3><p class="small">Notiere kurz, wie anstrengend die Einheit war und ob etwas unangenehm war.</p><textarea id="notes" placeholder="Notizen (optional)" style="width:100%;min-height:75px;background:#11171c;color:white;border:1px solid var(--line);border-radius:10px;padding:10px"></textarea><button class="action wide" style="margin-top:12px" onclick="finishWorkout()">Einheit abschließen & speichern</button></div>
+</section>
+<section id="progressPage" class="hidden">
+ <div class="tag">DEINE ENTWICKLUNG</div><h2>Fortschritt</h2><div class="statgrid"><div class="stat"><span class="small">Einheiten gespeichert</span><strong id="pTotal">0</strong></div><div class="stat"><span class="small">Letztes Training</span><strong id="lastDate" style="font-size:16px">–</strong></div></div>
+ <div class="card" style="margin-top:13px"><h3>Trainingshistorie</h3><div id="history" class="small">Noch keine Einheiten gespeichert.</div></div>
+ <div class="card"><h3>Daten sichern</h3><p class="small">Exportiere deine Trainingsdaten regelmäßig als Sicherung.</p><button class="secondary wide" onclick="exportData()">Daten exportieren</button><button class="secondary wide" style="margin-top:8px" onclick="document.getElementById('importFile').click()">Sicherung importieren</button><input id="importFile" type="file" accept="application/json" class="hidden" onchange="importData(event)"></div>
+</section>
+<section id="routine" class="hidden">
+ <div class="tag">5–8 MINUTEN · OHNE GEWICHT</div><h2>Haltungsroutine</h2><p class="small">Sanft, kontrolliert und ohne in den Schmerz zu arbeiten. An trainingsfreien Tagen möglich.</p>
+ <div class="card">
+  <div class="exercise"><h3>1. Chin Tucks</h3><div class="small">Kinn sanft waagerecht nach hinten schieben, nicht den Kopf nach unten beugen. 2 × 8–10 Wiederholungen, jeweils 3 Sekunden halten.</div></div>
+  <div class="exercise"><h3>2. Brustdehnung im Türrahmen</h3><div class="small">Unterarme locker am Türrahmen, einen kleinen Schritt nach vorne. 2 × 20–30 Sekunden, ohne starkes Ziehen.</div></div>
+  <div class="exercise"><h3>3. Brustwirbelsäulen-Mobilisation</h3><div class="small">Im Sitzen oder über einer geeigneten Lehne den oberen Rücken sanft strecken. 8 langsame Wiederholungen.</div></div>
+  <div class="exercise"><h3>4. Schulterblatt-Kontrolle</h3><div class="small">Arme locker, Schulterblätter sanft nach hinten-unten führen und wieder lösen. 2 × 10 Wiederholungen – nicht dauerhaft zusammenklemmen.</div></div>
+ </div>
+ <div class="notice">Da du einen sichtbaren Höcker am Übergang von Nacken zu Rücken beschrieben hast: Auch wenn er bei aufrechter Haltung kleiner wird, sollte er bei Veränderung oder Unsicherheit erneut ärztlich beurteilt werden. Die Routine ersetzt keine Untersuchung.</div>
+</section>
+<section id="settings" class="hidden">
+ <div class="tag">DEIN PROFIL</div><h2>Einstellungen</h2><div class="card"><div class="listline"><span class="muted">Trainingsziel</span><br><strong>Muskelaufbau, Fitness und Haltung</strong></div><div class="listline"><span class="muted">Ausstattung</span><br><strong>Kraftstation, Kabelzug, Langhantel, Multipresse, Bank, Kettlebells, Klimmzug-/Dip-Möglichkeit, Boxsack</strong></div><div class="listline"><span class="muted">Trainingsstatus</span><br><strong>Wiedereinsteiger</strong></div><div class="listline"><span class="muted">Gerät</span><br><strong>iPhone</strong></div></div><button class="secondary wide" onclick="if(confirm('Alle lokal gespeicherten Trainingsdaten löschen?')){localStorage.removeItem('ironform');location.reload()}">Alle Trainingsdaten löschen</button></section>
+</main>
+<nav><button class="active" onclick="show('home',this)">⌂<br>Start</button><button onclick="show('workout',this)">▣<br>Training</button><button onclick="show('routine',this)">↗<br>Haltung</button><button onclick="show('progressPage',this)">▥<br>Fortschritt</button><button onclick="show('settings',this)">⚙<br>Profil</button></nav>
+<footer>IRONFORM · Version 1.0 · Deine Daten bleiben in diesem Browser auf diesem Gerät.</footer>
+<script>
+const plans={
+ A:{name:"Training A",warm:"3–5 Minuten lockeres Gehen oder Radfahren. Danach Schulterkreisen und 1 leichter Aufwärmsatz der ersten Übungen.",items:[
+ ["Beinpresse / Kniebeuge an der Multipresse","2 × 8–10","Beine","Kontrolliert absenken, Rücken stabil. Wähle die Variante, die du sicher beherrschst."],
+ ["Brustdrücken an der Multipresse oder Bank","2 × 8–10","Brust","Leicht starten; Schulterblätter bequem stabil, kein erzwungenes Hohlkreuz."],
+ ["Sitzendes Rudern am Kabelzug","2 × 10–12","Rücken / Haltung","Ellbogen Richtung Hüfte führen, Oberkörper ruhig."],
+ ["Rumänisches Kreuzheben mit leichter Langhantel","2 × 8–10","Beinrückseite","Nur bei sicherer Technik; alternativ Kabelzug-Pull-through."],
+ ["Face Pull am Kabelzug","2 × 12–15","Hintere Schulter","Seil etwa auf Gesichtshöhe, leichtes Gewicht, ohne Schwung."],
+ ["Dead Bug","2 × 8 je Seite","Rumpf","Lendenbereich kontrolliert, langsam atmen."]
+ ]},
+ B:{name:"Training B",warm:"3–5 Minuten lockeres Aufwärmen. Danach 8 leichte Schulterblattbewegungen und einige unbelastete Kniebeugen.",items:[
+ ["Step-ups oder Goblet Squat mit Kettlebell","2 × 8 je Seite / 10","Beine","Stabile Unterlage; bei Unsicherheit Goblet Squat wählen."],
+ ["Latzug am Kabelzug","2 × 10–12","Rücken","Zur oberen Brust ziehen, nicht hinter den Kopf."],
+ ["Schrägbankdrücken mit leichten Kurzhanteln oder Multipresse","2 × 8–10","Brust","Schmerzfreier Bewegungsradius, kontrollierte Wiederholungen."],
+ ["Glute Bridge","2 × 12","Gesäß / Rumpf","Oben kurz halten, nicht ins Hohlkreuz drücken."],
+ ["Reverse Fly am Kabelzug","2 × 12–15","Hintere Schulter","Sehr leicht beginnen, Arme leicht gebeugt."],
+ ["Pallof Press am Kabelzug","2 × 10 je Seite","Rumpf","Becken und Brustkorb ruhig halten."]
+ ]}
+};
+let state=JSON.parse(localStorage.getItem('ironform')||'{"history":[],"logs":{},"next":"A"}');
+let current='A',tick=null;
+function save(){localStorage.setItem('ironform',JSON.stringify(state))}
+function show(id,btn){document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');if(id==='progressPage')renderProgress()}
+function choose(k){current=k;document.getElementById('tabA').classList.toggle('active',k==='A');document.getElementById('tabB').classList.toggle('active',k==='B');renderPlan()}
+function startNext(){current=state.next;choose(current);show('workout',document.querySelectorAll('nav button')[1])}
+function renderPlan(){
+ const p=plans[current];document.getElementById('workTitle').textContent=p.name;document.getElementById('warmup').textContent=p.warm;
+ const log=state.logs[current]||{};let done=0;
+ document.getElementById('exerciseList').innerHTML=p.items.map((e,i)=>{let v=log[i]||{};if(v.done)done++;return `<div class="exercise"><div class="exhead"><div class="num">${i+1}</div><div class="exbody"><h3>${e[0]}</h3><div class="prescription">${e[1]} · ${e[2]}</div><div class="small" style="margin-top:5px">${e[3]}</div></div></div><div class="inputs"><div><label>GEWICHT (KG)</label><input inputmode="decimal" placeholder="z. B. 20" value="${v.weight||''}" onchange="updateLog(${i},'weight',this.value)"></div><div><label>WIEDERHOLUNGEN</label><input inputmode="numeric" placeholder="z. B. 10" value="${v.reps||''}" onchange="updateLog(${i},'reps',this.value)"></div></div><label class="done"><input type="checkbox" ${v.done?'checked':''} onchange="updateLog(${i},'done',this.checked)"> Übung erledigt</label></div>`}).join('');
+ document.getElementById('count').textContent=done+' / '+p.items.length+' erledigt';document.getElementById('workProgress').style.width=(done/p.items.length*100)+'%';
+}
+function updateLog(i,k,v){state.logs[current]=state.logs[current]||{};state.logs[current][i]=state.logs[current][i]||{};state.logs[current][i][k]=v;save();if(k==='done')renderPlan()}
+function finishWorkout(){let p=plans[current];let log=state.logs[current]||{};let count=p.items.filter((_,i)=>log[i]?.done).length;if(count===0&&!confirm('Keine Übung als erledigt markiert. Trotzdem speichern?'))return;state.history.unshift({name:p.name,date:new Date().toLocaleDateString('de-DE'),count,total:p.items.length,notes:document.getElementById('notes').value,logs:JSON.parse(JSON.stringify(log))});state.next=current==='A'?'B':'A';state.logs[current]={};save();document.getElementById('notes').value='';document.getElementById('totalWorkouts').textContent=state.history.length;alert('Training gespeichert. Stark gemacht!');show('home',document.querySelectorAll('nav button')[0]);document.getElementById('nextName').textContent='Training '+state.next}
+function renderProgress(){document.getElementById('pTotal').textContent=state.history.length;document.getElementById('lastDate').textContent=state.history[0]?.date||'–';document.getElementById('history').innerHTML=state.history.length?state.history.map(h=>`<div class="listline"><strong>${h.name}</strong> · ${h.date}<br>${h.count}/${h.total} Übungen erledigt${h.notes?'<br><span class="muted">'+h.notes.replace(/[<>&]/g,'')+'</span>':''}</div>`).join(''):'Noch keine Einheiten gespeichert.'}
+function timerStart(sec){clearInterval(tick);let left=sec;const el=document.getElementById('timer');function draw(){el.textContent=String(Math.floor(left/60)).padStart(2,'0')+':'+String(left%60).padStart(2,'0');if(left<=0){clearInterval(tick);if(navigator.vibrate)navigator.vibrate(300);return}left--}draw();tick=setInterval(draw,1000)}
+function exportData(){let blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='ironform-training.json';a.click();URL.revokeObjectURL(a.href)}
+function importData(e){let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{let x=JSON.parse(r.result);if(!Array.isArray(x.history))throw 0;state=x;save();location.reload()}catch{alert('Datei konnte nicht gelesen werden.')}};r.readAsText(f)}
+document.getElementById('totalWorkouts').textContent=state.history.length;document.getElementById('nextName').textContent='Training '+state.next;renderPlan();
+</script>
+<script>
+if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+}
+</script>
+</body></html>
